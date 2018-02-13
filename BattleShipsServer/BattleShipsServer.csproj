@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA4FB609-D531-426A-B04C-1DBE7EB92AE8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BattleShipsServer</RootNamespace>
+    <AssemblyName>BattleShipsServer</AssemblyName>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.DirectX.DirectPlay, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BattleGrid.cs" />
+    <Compile Include="BattleGridSquare.cs" />
+    <Compile Include="battleshipsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>battleshipsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="battleshipsDataSet1.cs">
+      <DependentUpon>battleshipsDataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="battleshipsDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>battleshipsDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="battleshipsDataSetBannedUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>battleshipsDataSetBannedUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="battleshipsDataSetNotBannedUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>battleshipsDataSetNotBannedUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EnumBattleGridSquare.cs" />
+    <Compile Include="EnumShipOrientation.cs" />
+    <Compile Include="EnumShipType.cs" />
+    <Compile Include="Fleet.cs" />
+    <Compile Include="frmBanlist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBanlist.Designer.cs">
+      <DependentUpon>frmBanlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchPlayerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchPlayerInfo.Designer.cs">
+      <DependentUpon>frmSearchPlayerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServerMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServerMain.Designer.cs">
+      <DependentUpon>frmServerMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileInfo.cs" />
+    <Compile Include="SessionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SessionDialog.Designer.cs">
+      <DependentUpon>SessionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserMessage.Designer.cs">
+      <DependentUpon>frmUserMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game.cs" />
+    <Compile Include="HostInfo.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBanlist.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBanlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchPlayerInfo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSearchPlayerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServerMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmServerMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SessionDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SessionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserMessage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmUserMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BattleGridSquareImages.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BattleGridSquareImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ServerDiagram.cd" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Ship.cs" />
+    <Compile Include="BattleGridSquareImages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BattleGridSquareImages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizShipBack.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizShipBlownBack.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizShipBlownBody.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizShipBlownFront.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizShipBody.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizShipFront.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shiphit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertShipBack.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertShipBlownBack.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertShipBlownBody.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertShipBlownFront.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertShipBody.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertShipFront.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waterhit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="battleshipsDataSet.xsc">
+      <DependentUpon>battleshipsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="battleshipsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>battleshipsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="battleshipsDataSet.xss">
+      <DependentUpon>battleshipsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="battleshipsDataSet1.xsc">
+      <DependentUpon>battleshipsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="battleshipsDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>battleshipsDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="battleshipsDataSet1.xss">
+      <DependentUpon>battleshipsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="battleshipsDataSetBannedUsers.xsc">
+      <DependentUpon>battleshipsDataSetBannedUsers.xsd</DependentUpon>
+    </None>
+    <None Include="battleshipsDataSetBannedUsers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>battleshipsDataSetBannedUsers.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="battleshipsDataSetBannedUsers.xss">
+      <DependentUpon>battleshipsDataSetBannedUsers.xsd</DependentUpon>
+    </None>
+    <None Include="battleshipsDataSetNotBannedUsers.xsc">
+      <DependentUpon>battleshipsDataSetNotBannedUsers.xsd</DependentUpon>
+    </None>
+    <None Include="battleshipsDataSetNotBannedUsers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>battleshipsDataSetNotBannedUsers.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="battleshipsDataSetNotBannedUsers.xss">
+      <DependentUpon>battleshipsDataSetNotBannedUsers.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\waterunhit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="battleships.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="battleships_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>battleships.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.1.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2005 Express Edition</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
